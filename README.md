@@ -310,20 +310,6 @@ O mestre define a estrutura da ficha via `PUT /api/tables/{id}/config`:
 }
 ```
 
----
-
-## 🔒 Segurança
-
-- Senhas armazenadas com **hash BCrypt**
-- Autenticação **stateless** via **JWT** (expiração de 24h)
-- Validação de entrada com Bean Validation (`@Valid`, `@Size`, `@Pattern`...)
-- Validação de permissões (mestre vs. jogador) em todas as operações sensíveis
-- Segredos (chave JWT, senha do banco) **fora do repositório** — via variáveis de ambiente
-
-> ⚠️ **Nunca** commite `application.properties` nem `.env`. Eles já estão no `.gitignore`.
-
----
-
 ## 📝 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
