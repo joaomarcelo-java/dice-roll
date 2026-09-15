@@ -1,0 +1,97 @@
+{
+  "categorias": [
+    {
+      "nome": "Identificação",
+      "tipo": "identificacao",
+      "metodo": "livre",
+      "campos": [
+        { "nome": "Personagem", "tipo": "texto" },
+        { "nome": "Papel", "tipo": "texto", "opcoes": ["Rockerboy", "Solo", "Netrunner", "Tech", "Medtech", "Exec", "Lawman", "Fixer", "Nomad"] },
+        { "nome": "Origem", "tipo": "texto" },
+        { "nome": "Nível", "tipo": "numero", "valorPadrao": 1 }
+      ]
+    },
+    {
+      "nome": "Atributos",
+      "tipo": "atributos",
+      "metodo": "pontos",
+      "pontosDisponiveis": 25,
+      "campos": [
+        { "nome": "Reflexos", "tipo": "numero", "dado": "d10" },
+        { "nome": "Técnico", "tipo": "numero", "dado": "d10" },
+        { "nome": "Cool", "tipo": "numero", "dado": "d10" },
+        { "nome": "Inteligência", "tipo": "numero", "dado": "d10" },
+        { "nome": "Vontade", "tipo": "numero", "dado": "d10" },
+        { "nome": "Movimento", "tipo": "numero", "dado": "d10" },
+        { "nome": "Corpo", "tipo": "numero", "dado": "d10" },
+        { "nome": "Empatia", "tipo": "numero", "dado": "d10" }
+      ]
+    },
+    {
+      "nome": "Combate",
+      "tipo": "combate",
+      "metodo": "livre",
+      "campos": [
+        { "nome": "HP Máximo", "tipo": "numero" },
+        { "nome": "HP Atual", "tipo": "numero" },
+        { "nome": "Armadura", "tipo": "numero" },
+        { "nome": "Iniciativa", "tipo": "numero", "dado": "d10", "atributoVinculado": "Reflexos" }
+      ]
+    },
+    {
+      "nome": "Perícias",
+      "tipo": "pericias",
+      "metodo": "livre",
+      "campos": [
+        { "nome": "Pontaria", "tipo": "numero", "atributoVinculado": "Reflexos", "dado": "d10" },
+        { "nome": "Furtividade", "tipo": "numero", "atributoVinculado": "Reflexos", "dado": "d10" },
+        { "nome": "Persuasão", "tipo": "numero", "atributoVinculado": "Cool", "dado": "d10" },
+        { "nome": "Hackeamento", "tipo": "numero", "atributoVinculado": "Inteligência", "dado": "d10" },
+        { "nome": "Técnica", "tipo": "numero", "atributoVinculado": "Técnico", "dado": "d10" },
+        { "nome": "Percepção", "tipo": "numero", "atributoVinculado": "Inteligência", "dado": "d10" },
+        { "nome": "Investigação", "tipo": "numero", "atributoVinculado": "Inteligência", "dado": "d10" }
+      ]
+    },
+    {
+      "nome": "Ciberware",
+      "tipo": "custom",
+      "metodo": "livre",
+      "campos": [
+        { "nome": "Implantes", "tipo": "texto" }
+      ]
+    },
+    {
+      "nome": "Interpretação",
+      "tipo": "custom",
+      "metodo": "livre",
+      "campos": [
+        { "nome": "Personalidade", "tipo": "texto" },
+        { "nome": "Objetivo", "tipo": "texto" },
+        { "nome": "Ficha Criminal", "tipo": "texto" }
+      ]
+    }
+  ],
+  "regras": [
+    {
+      "condicao": { "campo": "Papel", "valor": "Solo" },
+      "efeitos": [
+        { "alvo": "Reflexos", "categoria": "Atributos", "modificador": 2 },
+        { "alvo": "Pontaria", "categoria": "Perícias", "modificador": 2 }
+      ]
+    },
+    {
+      "condicao": { "campo": "Papel", "valor": "Netrunner" },
+      "efeitos": [
+        { "alvo": "Inteligência", "categoria": "Atributos", "modificador": 2 },
+        { "alvo": "Hackeamento", "categoria": "Perícias", "modificador": 2 }
+      ]
+    },
+    {
+      "condicao": { "campo": "Papel", "valor": "Medtech" },
+      "efeitos": [
+        { "alvo": "Técnico", "categoria": "Atributos", "modificador": 2 },
+        { "alvo": "Técnica", "categoria": "Perícias", "modificador": 2 }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "categorias": [
+    {
+      "nome": "Identificação",
+      "tipo": "identificacao",
+      "metodo": "livre",
+      "campos": [
+        { "nome": "Personagem", "tipo": "texto" },
+        { "nome": "Ocupação", "tipo": "texto", "opcoes": ["Detetive", "Jornalista", "Médico", "Professor", "Investigador", "Bibliotecário", "Militar", "Religioso", "Arquiteto"] },
+        { "nome": "Idade", "tipo": "numero" }
+      ]
+    },
+    {
+      "nome": "Atributos",
+      "tipo": "atributos",
+      "metodo": "pontos",
+      "pontosDisponiveis": 20,
+      "campos": [
+        { "nome": "Força", "tipo": "numero", "dado": "d100" },
+        { "nome": "Destreza", "tipo": "numero", "dado": "d100" },
+        { "nome": "Inteligência", "tipo": "numero", "dado": "d100" },
+        { "nome": "Poder Mental", "tipo": "numero", "dado": "d100" },
+        { "nome": "Presença", "tipo": "numero", "dado": "d100" }
+      ]
+    },
+    {
+      "nome": "Sanidade",
+      "tipo": "custom",
+      "metodo": "livre",
+      "campos": [
+        { "nome": "Sanidade Máxima", "tipo": "numero", "valorPadrao": 50 },
+        { "nome": "Sanidade Atual", "tipo": "numero", "valorPadrao": 50 },
+        { "nome": "Choque", "tipo": "numero", "valorPadrao": 0 }
+      ]
+    },
+    {
+      "nome": "Combate",
+      "tipo": "combate",
+      "metodo": "livre",
+      "campos": [
+        { "nome": "PV Máximo", "tipo": "numero" },
+        { "nome": "PV Atual", "tipo": "numero" },
+        { "nome": "CA", "tipo": "numero" }
+      ]
+    },
+    {
+      "nome": "Perícias",
+      "tipo": "pericias",
+      "metodo": "livre",
+      "campos": [
+        { "nome": "Investigação", "tipo": "numero", "atributoVinculado": "Inteligência", "dado": "d100" },
+        { "nome": "Percepção", "tipo": "numero", "atributoVinculado": "Poder Mental", "dado": "d100" },
+        { "nome": "Furtividade", "tipo": "numero", "atributoVinculado": "Destreza", "dado": "d100" },
+        { "nome": "Ocultismo", "tipo": "numero", "atributoVinculado": "Inteligência", "dado": "d100" },
+        { "nome": "Persuasão", "tipo": "numero", "atributoVinculado": "Presença", "dado": "d100" },
+        { "nome": "Primeiros Socorros", "tipo": "numero", "atributoVinculado": "Inteligência", "dado": "d100" },
+        { "nome": "Intimidação", "tipo": "numero", "atributoVinculado": "Presença", "dado": "d100" }
+      ]
+    },
+    {
+      "nome": "Interpretação",
+      "tipo": "custom",
+      "metodo": "livre",
+      "campos": [
+        { "nome": "Personalidade", "tipo": "texto" },
+        { "nome": "Fobia", "tipo": "texto" },
+        { "nome": "Segredo", "tipo": "texto" }
+      ]
+    }
+  ],
+  "regras": [
+    {
+      "condicao": { "campo": "Ocupação", "valor": "Detetive" },
+      "efeitos": [
+        { "alvo": "Investigação", "categoria": "Perícias", "modificador": 3 },
+        { "alvo": "Percepção", "categoria": "Perícias", "modificador": 2 }
+      ]
+    },
+    {
+      "condicao": { "campo": "Ocupação", "valor": "Médico" },
+      "efeitos": [
+        { "alvo": "Primeiros Socorros", "categoria": "Perícias", "modificador": 3 },
+        { "alvo": "Inteligência", "categoria": "Atributos", "modificador": 1 }
+      ]
+    },
+    {
+      "condicao": { "campo": "Ocupação", "valor": "Religioso" },
+      "efeitos": [
+        { "alvo": "Ocultismo", "categoria": "Perícias", "modificador": 2 },
+        { "alvo": "Poder Mental", "categoria": "Atributos", "modificador": 1 }
+      ]
+    }
+  ]
+}

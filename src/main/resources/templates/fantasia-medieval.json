@@ -1,0 +1,94 @@
+{
+  "categorias": [
+    {
+      "nome": "Identificação",
+      "tipo": "identificacao",
+      "metodo": "livre",
+      "campos": [
+        { "nome": "Personagem", "tipo": "texto" },
+        { "nome": "Raça", "tipo": "texto", "opcoes": ["Humano", "Elfo", "Anão", "Halfling", "Gnomo", "Meio-Elfo", "Meio-Orc", "Tiefling"] },
+        { "nome": "Classe", "tipo": "texto", "opcoes": ["Guerreiro", "Mago", "Ladino", "Clérigo", "Bárbaro", "Paladino", "Bardo", "Feiticeiro", "Druida", "Monge", "Patrulheiro"] },
+        { "nome": "Nível", "tipo": "numero", "valorPadrao": 1 }
+      ]
+    },
+    {
+      "nome": "Atributos",
+      "tipo": "atributos",
+      "metodo": "pontos",
+      "pontosDisponiveis": 27,
+      "campos": [
+        { "nome": "Força", "tipo": "numero", "dado": "d20" },
+        { "nome": "Destreza", "tipo": "numero", "dado": "d20" },
+        { "nome": "Constituição", "tipo": "numero", "dado": "d20" },
+        { "nome": "Inteligência", "tipo": "numero", "dado": "d20" },
+        { "nome": "Sabedoria", "tipo": "numero", "dado": "d20" },
+        { "nome": "Carisma", "tipo": "numero", "dado": "d20" }
+      ]
+    },
+    {
+      "nome": "Combate",
+      "tipo": "combate",
+      "metodo": "livre",
+      "campos": [
+        { "nome": "PV Máximo", "tipo": "numero" },
+        { "nome": "PV Atual", "tipo": "numero" },
+        { "nome": "CA", "tipo": "numero" },
+        { "nome": "Iniciativa", "tipo": "numero", "dado": "d20", "atributoVinculado": "Destreza" }
+      ]
+    },
+    {
+      "nome": "Perícias",
+      "tipo": "pericias",
+      "metodo": "livre",
+      "campos": [
+        { "nome": "Atletismo", "tipo": "numero", "atributoVinculado": "Força", "dado": "d20" },
+        { "nome": "Furtividade", "tipo": "numero", "atributoVinculado": "Destreza", "dado": "d20" },
+        { "nome": "Percepção", "tipo": "numero", "atributoVinculado": "Sabedoria", "dado": "d20" },
+        { "nome": "Intimidação", "tipo": "numero", "atributoVinculado": "Carisma", "dado": "d20" },
+        { "nome": "Arcanismo", "tipo": "numero", "atributoVinculado": "Inteligência", "dado": "d20" },
+        { "nome": "Investigação", "tipo": "numero", "atributoVinculado": "Inteligência", "dado": "d20" },
+        { "nome": "Sobrevivência", "tipo": "numero", "atributoVinculado": "Sabedoria", "dado": "d20" }
+      ]
+    },
+    {
+      "nome": "Interpretação",
+      "tipo": "custom",
+      "metodo": "livre",
+      "campos": [
+        { "nome": "Personalidade", "tipo": "texto" },
+        { "nome": "Ideais", "tipo": "texto" },
+        { "nome": "Vínculos", "tipo": "texto" },
+        { "nome": "Defeitos", "tipo": "texto" }
+      ]
+    }
+  ],
+  "regras": [
+    {
+      "condicao": { "campo": "Classe", "valor": "Mago" },
+      "efeitos": [
+        { "alvo": "Inteligência", "categoria": "Atributos", "modificador": 3 },
+        { "alvo": "Força", "categoria": "Atributos", "modificador": -1 }
+      ]
+    },
+    {
+      "condicao": { "campo": "Classe", "valor": "Guerreiro" },
+      "efeitos": [
+        { "alvo": "Força", "categoria": "Atributos", "modificador": 3 },
+        { "alvo": "Inteligência", "categoria": "Atributos", "modificador": -1 }
+      ]
+    },
+    {
+      "condicao": { "campo": "Raça", "valor": "Elfo" },
+      "efeitos": [
+        { "alvo": "Destreza", "categoria": "Atributos", "modificador": 2 }
+      ]
+    },
+    {
+      "condicao": { "campo": "Raça", "valor": "Anão" },
+      "efeitos": [
+        { "alvo": "Constituição", "categoria": "Atributos", "modificador": 2 },
+        { "alvo": "Força", "categoria": "Atributos", "modificador": 1 }
+      ]
+    }
+  ]
+}
